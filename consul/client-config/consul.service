@@ -1,0 +1,20 @@
+[Unit]
+Description="HashiCorp Consul - Service Networking Solution"
+Documentation=https://www.consul.io/
+Requires=network-online.target
+Requires=docker.service
+After=network-online.target
+After=docker.service
+ConditionFileNotEmpty=/opt/consul/config/client.hcl
+
+[Service]
+User=pi
+Group=pi
+ExecStart=/usr/local/bin/consul agent -config-dir=/opt/consul/config
+ExecReload=/usr/local/bin/consul ExecReload
+KillMode=process
+Restart=on-failure
+LimitNOFILE=65536
+
+[Install]
+WantedBy=multi-user.target
