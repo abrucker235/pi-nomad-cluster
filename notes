@@ -1,6 +1,0 @@
-
-## Install Docker
-```
-curl -sSL https://get.docker.com | sh
-sudo systemctl enable docker
-```

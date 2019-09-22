@@ -1,2 +1,2 @@
-# Consul Server Agent Configuration
+# Consul Server Configuration
 
