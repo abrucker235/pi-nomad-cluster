@@ -1,0 +1,27 @@
+#https://www.nomadproject.io/guides/install/production/deployment-guide.html#server-configuration
+
+[Unit]
+Description="Nomad - HashiCorp Scheduler"
+Documentation=https://nomadproject.io/docs
+After=network-online.target
+After=consul.service
+Requires=network-online.target
+After=consul.service
+
+[Service]
+User=pi
+Group=pi
+ExecStart=/usr/local/bin/nomad agent -config /opt/nomad/config
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+KillSignal=SIGINT
+LimitNOFILE=infinity
+LimitNPROC=infinity
+Restart=on-failure
+RestartSec=2
+StartLimitBurst=3
+StartLimitIntervalSec=10
+TasksMax=infinity
+
+[Install]
+WantedBy=multi-user.target

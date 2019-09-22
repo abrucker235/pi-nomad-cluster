@@ -16,3 +16,4 @@ Documentating my configuration and learnings setting up a [nomad](https://www.no
 ## Preperation
 * [SD Card Preperation](SD-PREPERATION.md)
 * [Node Preperation](NODE-PREPERATION.md)
+* [Nomad Setup](nomad/README.md)
